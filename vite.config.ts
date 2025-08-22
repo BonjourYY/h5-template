@@ -10,6 +10,7 @@ import { VantResolver } from '@vant/auto-import-resolver'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/tbbw-client/',
   plugins: [
     vue(),
     vueDevTools(),
@@ -34,6 +35,17 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
+  server: {
+    port: 1234,
+    proxy: {
+      '/api': {
+        // target: 'http://10.27.18.75:3000/v1',
+        target: 'http://127.0.0.1:3001/v1',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
     },
   },
 })

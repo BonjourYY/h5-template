@@ -4,3 +4,8 @@
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'vant/lib/index.css' layer(vant);
 @import 'tailwindcss/utilities.css' layer(utilities);
+
+body,
+#app {
+  height: 100%;
+}
