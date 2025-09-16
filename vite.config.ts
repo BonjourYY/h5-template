@@ -1,5 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
@@ -13,11 +14,14 @@ import { imagetools } from 'vite-imagetools'
 export default defineConfig({
   base: '/ctdq/',
   plugins: [
+    Icons(),
     vue(),
     vueDevTools(),
     tailwindcss(),
     imagetools(),
     AutoImport({
+      imports: ['vue', 'vue-router'],
+      packagePresets: ['axios'],
       resolvers: [
         VantResolver({
           // 禁用样式引用
@@ -27,6 +31,7 @@ export default defineConfig({
     }),
     Components({
       resolvers: [
+        IconsResolver(),
         VantResolver({
           // 禁用样式引用
           importStyle: false,

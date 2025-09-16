@@ -1,0 +1,6 @@
+@layer theme, base, vant, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'vant/lib/index.css' layer(vant);
+@import 'tailwindcss/utilities.css' layer(utilities);

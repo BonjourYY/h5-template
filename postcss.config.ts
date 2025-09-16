@@ -4,7 +4,7 @@ export default {
   plugins: [
     mobileForever({
       appSelector: '#app',
-      viewportWidth: 1757,
+      viewportWidth: 375,
       maxDisplayWidth: 600,
     }),
   ],
