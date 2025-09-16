@@ -11,3 +11,8 @@ import { RouterView } from 'vue-router'
     </Suspense>
   </router-view>
 </template>
+
+<style>
+#app {
+}
+</style>

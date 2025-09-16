@@ -1,37 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { wxAuth } from '@/utils/wxAuth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // 首页
     {
       path: '/',
       name: 'home',
       component: () => import('@/views/home/index.vue'),
-    },
-
-    // 需求模块
-    {
-      path: '/demand',
-      name: 'demand',
-      children: [
-        {
-          path: 'ask',
-          name: 'demand-ask',
-          component: () => import('@/views/demand/ask/index.vue'),
+      meta: {
+        shareData: {
+          title: '龙凤城祥 桥见未来',
+          desc: '常泰开启跨江融合发展',
+          // link: window.location.href,
+          imgUrl: 'https://site01.cbxmt.cn/ctdq/share.jpg',
         },
-        {
-          path: 'list',
-          name: 'demand-list',
-          component: () => import('@/views/demand/list/index.vue'),
-        },
-      ],
+      },
     },
   ],
-})
-
-router.beforeEach(() => {
-  wxAuth()
 })
 
 export default router

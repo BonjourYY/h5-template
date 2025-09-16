@@ -1,5 +1,5 @@
-import { clearToken, getToken } from '@/utils/token'
-import { wxAuth } from '@/utils/wxAuth'
+// import { clearToken, getToken } from '@/utils/token'
+// import { wxAuth } from '@/utils/wxAuth'
 import axios from 'axios'
 import { closeToast, showFailToast, showLoadingToast } from 'vant'
 
@@ -32,6 +32,21 @@ const HTTP = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: {
     'Content-Type': 'application/json;charset=utf-8',
+    'CG-App-ID': '',
+    'CG-Client-Type': '',
+    'CG-Client-Version': '',
+    'CG-Client-Build': '',
+    'CG-Device-ID': '',
+    'CG-Device-Model': '',
+    'CG-Device-OS': '',
+    'CG-Device-OS-Version': '',
+    'CG-User-ID': '',
+    'CG-Request-ID': '',
+    'CG-Timestamp': '',
+    'CG-API-Version': '',
+    'CG-Signature': '',
+    'CG-Nonce': '',
+    'CG-Client-lD': '',
   },
 })
 
@@ -40,10 +55,10 @@ HTTP.interceptors.request.use(
   (config) => {
     showLoading()
 
-    const token = getToken()
-    if (token && config.headers) {
-      config.headers.set('Authorization', `Bearer ${token}`)
-    }
+    // const token = getToken()
+    // if (token && config.headers) {
+    //   config.headers.set('Authorization', `Bearer ${token}`)
+    // }
     return config
   },
   (error) => {
